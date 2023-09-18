@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  picoshare:
+    container_name: picoshare
+    image: mtlynch/picoshare:latest
+    mem_limit: 2g
+    cpu_shares: 768
+    ports:
+      - 3200:3200
+    volumes:
+      - /data/picoshare/data:/data:rw
+    environment:
+      PS_SHARED_SECRET: <password here>
+      PORT: 3200
+    restart: unless-stopped
